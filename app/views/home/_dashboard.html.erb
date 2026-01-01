@@ -1,6 +1,6 @@
 <div class="dashboard">
   <h1>Welcome back, <%= current_user.username %>!</h1>
-  <div class="stats">
-  </div>
+  <div class="stats"></div>
   <%= button_to "Log Out", logout_path, method: :delete, class: "logout-btn" %>
+<%= link_to "Manage Semesters", semesters_path, class: "button-style" %>
 </div>

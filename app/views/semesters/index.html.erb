@@ -1,0 +1,35 @@
+<h1>My Semesters</h1>
+
+<section class="semester-form">
+  <h3>Add New Semester</h3>
+  <%= form_with model: @semester do |f| %>
+  <div>
+    <%= f.label :name, "Semester Name (e.g. Fall 2025)" %>
+    <%= f.text_field :name %>
+  </div>
+ <div>
+    <%= f.label :number, "Semester Number (e.g. 1, 2, 3)" %>
+    <%= f.text_field :number %>
+  </div>
+  <div>
+    <%= f.label :active, "Set as Current Semester?" %>
+    <%= f.check_box :active %>
+  </div>
+
+  <%= f.submit "Create Semester" %>
+<% end %>
+</section>
+
+<hr>
+
+<section class="semester-list">
+  <h3>Existing Semesters</h3>
+  <ul>
+    <% @semesters.each do |semester| %>
+      <li>
+        <%= semester.name %> 
+        <%= "(Current)" if semester.active %>
+      </li>
+    <% end %>
+  </ul>
+</section>

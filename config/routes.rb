@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "semesters/index"
   root "home#index"
   get "sessions/new"
   get "sessions/create"
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
   get "login",  to: "sessions#new"
   post "login",  to: "sessions#create"
   delete "logout", to: "sessions#destroy"
+  get "semesters", to: "semesters#index"
+  post "semesters", to: "semesters#create"
 end
