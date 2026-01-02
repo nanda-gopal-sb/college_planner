@@ -1,24 +1,45 @@
-# README
+College Planner
+===============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small Rails application for managing semesters and users (college planner).
 
-Things you may want to cover:
+Quick start
+-----------
 
-* Ruby version
+Prerequisites:
+- Ruby (3.x recommended)
+- Bundler
+- SQLite (development) or another supported DB
 
-* System dependencies
+Install dependencies:
 
-* Configuration
+	bundle install
 
-* Database creation
+Set up the database:
 
-* Database initialization
+	bin/rails db:create db:migrate db:seed
 
-* How to run the test suite
+Run the app (development):
 
-* Services (job queues, cache servers, search engines, etc.)
+	bin/rails server
 
-* Deployment instructions
+Then open http://localhost:3000 in your browser.
 
-* ...
+Running tests:
+
+	bundle exec rails test
+
+Docker (optional)
+-----------------
+If you prefer Docker, build and run the image (project contains a Dockerfile):
+
+	docker build -t college_planner .
+	docker run -p 3000:3000 college_planner
+
+Notes
+-----
+- Configuration lives in `config/`.
+- Main controllers are in `app/controllers/` and models in `app/models/`.
+- To modify assets, edit `app/assets/`.
+
+
