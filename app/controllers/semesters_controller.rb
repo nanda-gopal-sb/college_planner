@@ -6,6 +6,11 @@ end
 
 def create
 @semester = current_user.semesters.build(semester_params)
+if @semester.active?
+  puts "True"
+  current_user.semesters.update_all(active: false)
+  @semesters = current_user.semesters
+end
   if @semester.save
     redirect_to semesters_path, notice: "Semester created successfully."
   else
