@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_12_31_100114) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_03_025633) do
   create_table "semesters", force: :cascade do |t|
     t.string "name"
     t.boolean "active"
@@ -19,6 +19,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_31_100114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_semesters_on_user_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.integer "credits"
+    t.string "subject_code"
+    t.string "professor"
+    t.integer "semester_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["semester_id"], name: "index_subjects_on_semester_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,4 +42,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_12_31_100114) do
   end
 
   add_foreign_key "semesters", "users"
+  add_foreign_key "subjects", "semesters"
 end
