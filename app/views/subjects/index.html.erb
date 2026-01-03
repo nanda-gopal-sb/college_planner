@@ -1,2 +1,31 @@
-<h1>Subjects#index</h1>
-<p>Find me in app/views/subjects/index.html.erb</p>
+<section class="subject-form">
+  <h3>Add New Subject</h3>
+  <%= form_with model: @subject do |f| %>
+    <%= f.label :Name %>
+    <%= f.text_field :name %>
+    <%= f.label :Code %>
+    <%= f.text_field :subject_code %>
+    <%= f.label :Credits %>
+    <%= f.text_field :credits %>
+     <%= f.label :Professor %>
+    <%= f.text_field :professor %>
+    <%= f.label :semester_id, "Select Semester" %>
+    <%= f.collection_select :semester_id, @semesters, :id, :name %>
+    <%= f.submit %>
+  <% end %>
+</section>
+<section class="semester-list">
+  <h3>Subjects of Each semester</h3>
+  <ul>
+    <% @semesters.each do |semester| %>
+      <li>
+        <%= semester.name %>
+        <% @subjects.each do |subject| %>
+          <li>
+            <%= subject.name %>
+          </li>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>

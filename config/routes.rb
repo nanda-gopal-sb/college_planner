@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get "subjects/index"
-  get "subjects/create"
   get "semesters/index"
   root "home#index"
   get "sessions/new"
