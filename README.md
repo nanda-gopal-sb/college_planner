@@ -1,7 +1,7 @@
 College Planner
 ===============
 
-Small Rails application for managing semesters and users (college planner).
+Small Rails application for managing semesters and users.
 
 Quick start
 -----------
